@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Generator</title>
+    <script type="text/javascript">
+        // Функция для генерации случайного числа и отправки события в Яндекс.Метрику
+        function generateAndSendNumber() {
+            // Генерация случайного числа
+            var randomNumber = Math.floor(Math.random() * 1000000) + 1;
+            
+            // Отображение числа на странице
+            document.getElementById('numberDisplay').innerText = randomNumber;
+
+            // Отправка события в Яндекс.Метрику
+            ym(96335200, 'reachGoal', 'test', {number: randomNumber});
+        }
+    </script>
+</head>
+<body>
+    <h1>Случайное число</h1>
+    <button onclick="generateAndSendNumber()">Сгенерировать число</button>
+    <p id="numberDisplay"></p>
+
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        var z = null;m[i].l=1*new Date();
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(96335200, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/96335200" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Яндекс.Метрика -->
+</body>
+</html>
